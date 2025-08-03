@@ -2,7 +2,7 @@
   <h2>Transactions</h2>
   <ul class="transaction-list">
     <li *ngFor="let transaction of transactions" (click)="selectTransaction(transaction)" [class.selected]="transaction === selectedTransaction">
-      {{ transaction.date }} - {{ transaction.description }} - ${{ transaction.amount }}
+      {{ transaction.date }} - {{ transaction.description }} - Rs.{{ transaction.amount }}
       <button (click)="deleteTransaction(transaction.id); $event.stopPropagation()">Delete</button>
     </li>
   </ul>
