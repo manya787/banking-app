@@ -1,49 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { LoanService } from '../services/loan.service'; // Ensure correct path
-import { Loan } from '../models/loan.model'; // Define a Loan model
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-loan-services',
-  templateUrl: './loan-services.component.html',
-  styleUrls: ['./loan-services.component.css']
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './loan-services.html',
+  styleUrls: ['./loan-services.css']
 })
 export class LoanServicesComponent implements OnInit {
-  loans: Loan[] = [];
-  selectedLoan: Loan | null = null;
+  loans: any[] = [
+    { name: 'Personal Loan', interestRate: 5.5, amount: 10000, duration: 24 },
+    { name: 'Home Loan', interestRate: 3.2, amount: 50000, duration: 120 },
+    { name: 'Car Loan', interestRate: 4.8, amount: 20000, duration: 60 }
+  ];
+  selectedLoan: any = null;
   loanApplication: any = {}; // Object to hold loan application data
   message: string = '';
 
-  constructor(private loanService: LoanService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.fetchLoans();
-  }
-
-  fetchLoans(): void {
-    this.loanService.getLoans().subscribe(
-      (data: Loan[]) => {
-        this.loans = data;
-      },
-      (error) => {
-        console.error('Error fetching loans', error);
-      }
-    );
+    // In a real app, this would fetch from a service
+    // this.fetchLoans();
   }
 
   applyForLoan(): void {
-    this.loanService.applyForLoan(this.loanApplication).subscribe(
-      (response) => {
-        this.message = 'Loan application submitted successfully!';
-        this.loanApplication = {}; // Reset form
-      },
-      (error) => {
-        console.error('Error applying for loan', error);
-        this.message = 'Failed to submit loan application.';
-      }
-    );
+    // In a real app, this would call a service
+    // this.loanService.applyForLoan(this.loanApplication).subscribe(
+    this.message = 'Loan application submitted successfully!';
+    this.loanApplication = {}; // Reset form
+    /*
+    (response) => {
+      this.message = 'Loan application submitted successfully!';
+      this.loanApplication = {}; // Reset form
+    },
+    (error) => {
+      console.error('Error applying for loan', error);
+      this.message = 'Failed to submit loan application.';
+    }
+    */
   }
 
-  selectLoan(loan: Loan): void {
+  selectLoan(loan: any): void {
     this.selectedLoan = loan;
   }
 }

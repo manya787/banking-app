@@ -1,24 +1,24 @@
 <div class="hero">
     <h1>Welcome to Our Banking App</h1>
     <p>Your trusted partner in financial services.</p>
-    <button class="cta-button">Get Started</button>
   </div>
   
   <div class="features">
     <h2>Our Services</h2>
     <div class="feature-cards">
-      <div class="feature-card">
+      <div class="feature-card" (click)="navigateToAccountManagement()">
         <h3>Account Management</h3>
         <p>Manage your accounts with ease.</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" (click)="navigateToLoanServices()">
         <h3>Loan Services</h3>
         <p>Flexible loan options tailored to your needs.</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" (click)="navigateToTransactions()">
         <h3>Secure Transactions</h3>
         <p>Safe and secure banking experience.</p>
       </div>
     </div>
   </div>
+  
   

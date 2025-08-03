@@ -1,0 +1,110 @@
+.transaction-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.transaction-list {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.transaction-list th, .transaction-list td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.transaction-list th {
+  background-color: #f4f4f4;
+}
+
+.transaction-list tr:hover {
+  background-color: #f1f1f1;
+}
+
+.transaction-form {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.transaction-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.transaction-form input, .transaction-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.transaction-form input:focus, .transaction-form select:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+.transaction-form button {
+  background-color: #2980b9;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-form button:hover {
+  background-color: #1c5980;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .transaction-container {
+    padding: 15px;
+    margin: 10px;
+  }
+  .transaction-list, .transaction-list th, .transaction-list td {
+    display: block;
+    width: 100%;
+  }
+  .transaction-list th, .transaction-list td {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: right;
+    position: relative;
+  }
+  .transaction-list th::before, .transaction-list td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .transaction-form label, .transaction-form input, .transaction-form select, .transaction-form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .transaction-form button {
+    margin-top: 10px;
+  }
+}
