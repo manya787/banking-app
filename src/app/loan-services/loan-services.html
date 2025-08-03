@@ -1,0 +1,24 @@
+<div class="loan-services">
+    <h2>Available Loans</h2>
+    
+    <div *ngFor="let loan of loans" class="loan-card" (click)="selectLoan(loan)">
+      <h3>{{ loan.name }}</h3>
+      <p>Interest Rate: {{ loan.interestRate }}%</p>
+      <p>Amount: {{ loan.amount }}</p>
+      <p>Duration: {{ loan.duration }} months</p>
+    </div>
+  
+    <h2 *ngIf="selectedLoan">Apply for {{ selectedLoan.name }}</h2>
+    <form *ngIf="selectedLoan" (ngSubmit)="applyForLoan()">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" [(ngModel)]="loanApplication.amount" name="amount" required>
+  
+      <label for="duration">Duration (months):</label>
+      <input type="number" id="duration" [(ngModel)]="loanApplication.duration" name="duration" required>
+  
+      <button type="submit">Submit Application</button>
+    </form>
+  
+    <div *ngIf="message">{{ message }}</div>
+  </div>
+  
