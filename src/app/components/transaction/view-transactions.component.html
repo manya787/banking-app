@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Transactions</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions" (click)="selectTransaction(transaction)">
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.userId }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.date | date:'yyyy-MM-dd' }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteTransaction(transaction); $event.stopPropagation();">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="selectedTransaction">
+    <h3>Selected Transaction</h3>
+    <p>ID: {{ selectedTransaction.id }}</p>
+    <p>User ID: {{ selectedTransaction.userId }}</p>
+    <p>Amount: {{ selectedTransaction.amount }}</p>
+    <p>Date: {{ selectedTransaction.date | date:'yyyy-MM-dd' }}</p>
+    <p>Description: {{ selectedTransaction.description }}</p>
+  </div>
+</div>

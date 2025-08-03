@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', component: Home },
   { path: 'account-management', component: AccountManagement },
   { path: 'loan-services', component: LoanServicesComponent },
-  { path: 'transactions', loadComponent: () => import('./components/transaction/transaction.component').then(m => m.TransactionComponent) },
+  { path: 'transactions/make', loadComponent: () => import('./components/transaction/transaction.component').then(m => m.TransactionComponent) },
+  { path: 'transactions/view', loadComponent: () => import('./components/transaction/view-transactions.component').then(m => m.ViewTransactionsComponent) },
   // Add more routes as needed
 ];
 

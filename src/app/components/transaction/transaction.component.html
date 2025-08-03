@@ -1,15 +1,7 @@
 <div class="transaction-container">
-  <h2>Transactions</h2>
-  <ul class="transaction-list">
-    <li *ngFor="let transaction of transactions" (click)="selectTransaction(transaction)" [class.selected]="transaction === selectedTransaction">
-      {{ transaction.date }} - {{ transaction.description }} - Rs.{{ transaction.amount }}
-      <button (click)="deleteTransaction(transaction.id); $event.stopPropagation()">Delete</button>
-    </li>
-  </ul>
-
+  <h2>New Transaction</h2>
   <div class="transaction-form">
-    <h3>{{ selectedTransaction ? 'Edit Transaction' : 'New Transaction' }}</h3>
-    <form (ngSubmit)="selectedTransaction ? updateTransaction() : createTransaction()">
+    <form (ngSubmit)="createTransaction()">
       <label>
         Date:
         <input type="date" [(ngModel)]="transactionForm.date" name="date" required />
@@ -22,8 +14,8 @@
         Amount:
         <input type="number" [(ngModel)]="transactionForm.amount" name="amount" required />
       </label>
-      <button type="submit">{{ selectedTransaction ? 'Update' : 'Create' }}</button>
-      <button type="button" (click)="selectedTransaction = null; transactionForm = {}">Cancel</button>
+      <button type="submit">Create</button>
+      <button type="button" (click)="transactionForm = {}">Cancel</button>
     </form>
   </div>
 </div>
